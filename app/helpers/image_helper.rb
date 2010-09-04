@@ -1,11 +1,44 @@
+require 'rubygems'
+require 'RMagick'
+
 module ImageHelper
-  class SmileysValidation
+  class SmileyValidation
   	def initialize()
-  		@chars = Regexp.compile("^\s*['%sÞ]*\s*$" % Regexp.escape('^#&)(*-,/.0398€;:=<>@CBDOPSTX[]\_cbdmoqpuwv}|~!'))
-  		#pass
+  		@smileychars = Regexp.compile("^\s*['%sÞ]*\s*$" % Regexp.escape('^#&)(*-,/.0398€;:=<>@CBDOPSTX[]\_cbdmoqpuwv}|~!'))
+  		@eye = "[%s]{1,2}|[0oO]" % Regexp.escape('^><=T')
+  		@smileyjapanese = Regexp.compile("(%s)([_ \.w-]{1,3})(%s)" % [@eye,@eye])
 		end
+		def is_japanese_style(txt)
+		  return @smileyjapanese.match(txt)
+	  end
   	def is_valid(txt)
-  		return @chars.match(txt)
+  		return @smileychars.match(txt)
+    end
+  end
+  
+  class SmileyImage
+    def generate(smiley,rotate=true)
+      granite = Magick::ImageList.new('plasma:fractal') {self.size = "128x128"}
+      canvas = Magick::ImageList.new
+      canvas.new_image(128, 128, Magick::TextureFill.new(granite))
+      text = Magick::Draw.new{
+        self.font_family = 'Lucida Grande'
+        self.pointsize = 52
+        self.gravity = Magick::CenterGravity; 
+      }
+      #p text.methods
+      text.skewy(30).annotate(canvas, 0,0,2,2, smiley) {
+        self.fill = 'gray83'
+      }.annotate(canvas, 0,0,-1.5,-1.5, smiley) {
+        self.fill = 'gray40'
+      }.annotate(canvas, 0,0,0,0, smiley) {
+        self.fill = 'black'
+      }
+      if rotate
+        return canvas.rotate(90)
+      else
+        return canvas
+      end
     end
   end
 end
