@@ -12,7 +12,7 @@ class ImageController < ApplicationController
     canvas = Magick::ImageList.new
     canvas.new_image(128, 128, Magick::TextureFill.new(granite))
     text = Magick::Draw.new{
-      self.font_family = 'arial'
+      self.font_family = 'Lucida Grande'
       self.pointsize = 52
       self.gravity = Magick::CenterGravity; 
     }
