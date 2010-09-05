@@ -1,6 +1,5 @@
 require 'rubygems'
-require 'RMagick'
-
+require 'RMagick' unless defined?(Magick)
 module ImageHelper
   class SmileyValidation
   	def initialize()
