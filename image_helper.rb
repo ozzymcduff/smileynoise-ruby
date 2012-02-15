@@ -4,9 +4,9 @@ require 'RMagick' unless defined?(Magick)
 module ImageHelper
   class SmileyValidation
   	def initialize()
-  		@smileychars = Regexp.compile("^\s*['%sÞ]*\s*$" % Regexp.escape('^#&)(*-,/.0398€;:=<>@CBDOPSTX[]\_cbdmoqpuwv}|~!'))
+  		@smileychars = Regexp.compile("^\s*['%sÞ]*\s*$" % Regexp.escape('^#&)(*-,/.0398€;:=<>@CBDOPSTX[]\_cbdmoqpuwv}|~!"'))
   		@eye = "[%s]{1,2}|[0oO]" % Regexp.escape('^><=T')
-  		@smileyjapanese = Regexp.compile("(%s)([_ \.w-]{1,3})(%s)" % [@eye,@eye])
+  		@smileyjapanese = Regexp.compile("(%s)([_ \.w-]{0,3})(%s)" % [@eye,@eye])
 		end
 		def is_japanese_style(txt)
 		  return @smileyjapanese.match(txt)
