@@ -1,4 +1,5 @@
 source 'http://rubygems.org'
+ruby "2.1.5"
 
 gem 'sinatra', '1.0'
 gem 'rmagick', '2.9.0'

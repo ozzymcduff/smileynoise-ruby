@@ -1,5 +1,5 @@
 # encoding: utf-8
-require 'image_helper'
+require_relative 'image_helper'
 require 'test/unit'
 class ImageHelperTest < Test::Unit::TestCase
   def setup()
@@ -20,3 +20,4 @@ class ImageHelperTest < Test::Unit::TestCase
 		assert(smileys.length==0,"smiley not recognized as japanese: '"+smileys.join(", ")+"'")
   end
 end
+

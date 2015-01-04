@@ -17,14 +17,16 @@ module ImageHelper
   end
   
   class SmileyImage
+    include Magick
     def generate(smiley,rotate=true)
-      granite = Magick::ImageList.new('plasma:fractal') {self.size = "128x128"}
-      canvas = Magick::ImageList.new
-      canvas.new_image(128, 128, Magick::TextureFill.new(granite))
-      text = Magick::Draw.new{
+      granite = ImageList.new('plasma:fractal') {self.size = "128x128"}
+      canvas = ImageList.new
+      canvas.new_image(128, 128, TextureFill.new(granite))
+      text = Draw.new{
+        self.font = 'Helvetica'
         self.font_family = 'Lucida Grande'
         self.pointsize = 52
-        self.gravity = Magick::CenterGravity; 
+        self.gravity = CenterGravity; 
       }
       #p text.methods
       text.skewy(30).annotate(canvas, 0,0,2,2, smiley) {
