@@ -1,5 +1,5 @@
 # encoding: utf-8
-require 'image_helper'
+require './image_helper'
 require 'test/unit'
 class ImageHelperTest < Test::Unit::TestCase
   def setup()

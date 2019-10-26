@@ -1,2 +1,2 @@
-require 'image_controller'
+require './image_controller'
 run Sinatra::Application

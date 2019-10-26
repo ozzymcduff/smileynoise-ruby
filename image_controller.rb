@@ -1,7 +1,7 @@
 # encoding: utf-8
 require 'rubygems'
 require 'sinatra'
-require 'Image_helper'
+require './image_helper'
 get '/image/view' do
   @smileyValidation = ImageHelper::SmileyValidation.new()
   @smileyImage = ImageHelper::SmileyImage.new()
