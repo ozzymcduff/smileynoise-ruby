@@ -1,6 +1,6 @@
 # encoding: utf-8
 require 'sinatra'
-require_relative 'image_helper'
+require './image_helper'
 get '/image/view' do
   @smileyValidation = ImageHelper::SmileyValidation.new()
   @smileyImage = ImageHelper::SmileyImage.new()

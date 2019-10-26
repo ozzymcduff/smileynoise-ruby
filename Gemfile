@@ -1,8 +1,7 @@
-source 'http://rubygems.org'
-ruby "2.1.5"
+source 'https://rubygems.org'
 
-gem 'sinatra', '1.0'
-gem 'rmagick', '2.9.0'
+gem 'sinatra', '~> 2.0', '>= 2.0.7'
+gem 'rmagick', '~> 4'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
@@ -28,6 +27,6 @@ gem 'rmagick', '2.9.0'
 # Bundle gems for the local environment. Make sure to
 # put test-only gems in this group so their generators
 # and rake tasks are available in development mode:
-# group :development, :test do
-#   gem 'webrat'
-# end
+group :development, :test do
+    gem 'test-unit', '~> 3.3', '>= 3.3.4'
+end
