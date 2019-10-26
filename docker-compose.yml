@@ -1,0 +1,11 @@
+version: '3.2'
+
+services:
+
+    app:
+        build: .
+        hostname: app
+        ports:
+            - "5000:5000"
+        environment:
+            - RUBYOPT=-W0 -KU -E utf-8:utf-8
