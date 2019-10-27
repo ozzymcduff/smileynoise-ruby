@@ -17,6 +17,6 @@ RUN ./imagick_type_gen.pl > ~/.magick/type.xml
 RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app
 COPY . .
-RUN gem install bundler && bundle install
+RUN gem install bundler && bundle install --deployment
 EXPOSE 5000
 CMD ["bundle", "exec", "rackup", "--host", "0.0.0.0", "-p", "5000"]
