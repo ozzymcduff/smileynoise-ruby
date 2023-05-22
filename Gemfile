@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
-ruby "2.6.3"
+#ruby "2.6.3"
+#ruby "3.2.2"
 gem 'sinatra', '~> 2.2'
 gem 'rmagick', '~> 4'
 # Bundle edge Rails instead:
