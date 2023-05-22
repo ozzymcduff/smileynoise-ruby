@@ -20,6 +20,6 @@ RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app
 COPY . .
 RUN gem install bundler
-RUN bundle install --deployment
+RUN bundle install
 EXPOSE 5000
 CMD ["bundle", "exec", "rackup", "--host", "0.0.0.0", "-p", "5000"]
